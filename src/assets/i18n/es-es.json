@@ -1,0 +1,17 @@
+{
+  "color": "Color",
+  "confirm_password": "Confirme tu contraseña",
+  "config_your_user": "Configure tu usuario",
+  "create_your_user": "Vamos a crear tu usuario",
+  "digit_your_x": "Digite tu {{x}}",
+  "email": "Email",
+  "it_is_necessary_to_be_a_x": "Es necesario ser un/a {{x}}",
+  "login": "Entrar",
+  "name": "Nombre",
+  "password": "Contraseña",
+  "passwords_must_match": "Las contraseñas deven ser iguales",
+  "register": "Registra-te",
+  "user": "Usuario",
+  "userName": "Apellido",
+  "x_is_required": "{{x}} es obligatorio!"
+}

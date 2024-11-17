@@ -1,0 +1,12 @@
+<main id="main" class="h-full w-full">
+  @if (isLoaded){
+    <app-top-bar
+      [boards]="boards"
+      (selectBoard)="changeBoard($event)"
+    >
+    </app-top-bar>
+    <app-sections></app-sections>
+  } @else {
+    <app-loader></app-loader>
+  }
+</main>

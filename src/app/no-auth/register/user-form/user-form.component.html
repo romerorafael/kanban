@@ -1,0 +1,9 @@
+<form [formGroup]="userFormGroup()">
+  <ng-template matStepLabel>{{ 'create_you_user' | translate }}</ng-template>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="user" placeholder="Last name, First name">
+  </mat-form-field>
+
+</form>

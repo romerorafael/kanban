@@ -1,0 +1,90 @@
+<div id="register" class="flex flex-center flex-col mt-12 w-full">
+  <mat-stepper linear="false" #stepper class="w-full">
+
+    <mat-step [stepControl]="userFormGroup" [editable]="isEditable">
+      <form [formGroup]="userFormGroup" class="flex flex-col gap-1">
+        <ng-template matStepLabel>{{ 'create_your_user' | translate }}</ng-template>
+
+        @if(isLoading){
+          <app-loader></app-loader>
+        }
+        @else
+        {
+          <mat-form-field>
+            <mat-label>{{ 'name' | translate }}</mat-label>
+            <input matInput formControlName="name" placeholder="{{ 'name' | translate }}">
+            @if(userFormGroup.get('name')?.invalid && userFormGroup.get('name')?.touched) {
+              <mat-hint class="text-red-500">
+                {{ "x_is_required" | translate: { x: 'user' | translate } }}
+              </mat-hint>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>UserName</mat-label>
+            <input matInput formControlName="userName" placeholder="UserName">
+            @if(userFormGroup.get('userName')?.invalid && userFormGroup.get('userName')?.touched) {
+              <mat-hint class="text-red-500">
+                {{ "x_is_required" | translate: { x: 'userName' | translate } }}
+              </mat-hint>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>{{ 'email' | translate }}</mat-label>
+            <input matInput formControlName="email" placeholder="{{ 'digit_your_x' | translate: { x: 'email' | translate } }}">
+            @if(userFormGroup.get('email')?.invalid && userFormGroup.get('email')?.touched) {
+              @if(userFormGroup.get('email')?.errors?.['required']) {
+                <mat-hint class="text-red-500">
+                  {{ "x_is_required" | translate: { x: 'email' | translate } }}
+                </mat-hint>
+              }
+              @else if(userFormGroup.get('email')?.errors?.['email']) {
+                <mat-hint class="text-red-500">
+                  {{ "it_is_necessary_to_be_a_x" | translate: { x: 'email' | translate } }}
+                </mat-hint>
+              }
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>{{ 'password' | translate }}</mat-label>
+            <input
+              [type]="hide ? 'text' : 'password'"
+              matInput
+              placeholder="{{ 'digit_your_x' | translate:{x: 'password' | translate } }}"
+              formControlName="password"
+            >
+            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+            @if(userFormGroup.get('password')?.invalid && userFormGroup.get('password')?.touched) {
+              <mat-hint class="text-red-500">
+                {{ "x_is_required" | translate: { x: 'password' | translate } }}
+              </mat-hint>
+            }
+          </mat-form-field>
+
+          <div class="w-full flex justify-end item-end">
+            <button
+              mat-raised-button
+              color="primary"
+              matStepperNext
+              class="w-16"
+              (click)="onCreateUser()"
+              [disabled]="!userFormGroup.valid"
+            >Next</button>
+          </div>
+        }
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <div class="flex flex-center flex-col mt-12">
+        <img ngSrc="./assets/images/felicidade.png" alt="Mulher sorrindo pela finalização do cadastro" height="256"
+             width="256">
+        <button mat-flat-button (click)="forceLogin()">Ir para meu Kanban</button>
+      </div>
+    </mat-step>
+
+  </mat-stepper>
+</div>

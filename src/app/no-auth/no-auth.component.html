@@ -1,0 +1,25 @@
+<section id="noAuthForm" class="h-dvh w-dvw bg-stone-200 flex-center">
+  <div class="flex h-full w-full bg-white md:shadow-2xl md:h-[85%] md:w-[40%]">
+    <mat-tab-group dynamicHeight class="h-full w-full">
+      <mat-tab class="h-full">
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-2">login</mat-icon>
+          {{ 'login' | translate}}
+        </ng-template>
+        <div class="h-full flex-grow">
+          <app-login ></app-login>
+        </div>
+      </mat-tab>
+
+      <mat-tab class="h-full">
+        <ng-template mat-tab-label>
+          <mat-icon class="mr-2">app_registration</mat-icon>
+          {{ 'register' | translate }}
+        </ng-template>
+        <div class="h-full flex-grow">
+          <app-register></app-register>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>

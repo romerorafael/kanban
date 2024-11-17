@@ -1,0 +1,17 @@
+{
+  "color": "Color",
+  "confirm_password": "Confirm your password",
+  "config_your_user": "Config your user",
+  "create_your_user": "Let's create your user",
+  "digit_your_x": "Digit your {{x}}",
+  "email": "Email",
+  "it_is_necessary_to_be_a_x": "It is necessary to be a {{x}}",
+  "login": "Login",
+  "name": "Name",
+  "password": "Password",
+  "passwords_must_match": "Passwords must match",
+  "register": "Register",
+  "user": "User",
+  "userName": "Username",
+  "x_is_required": "{{x}} is required!"
+}

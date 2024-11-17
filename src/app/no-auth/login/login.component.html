@@ -1,0 +1,42 @@
+<div id="login" class="flex flex-center flex-col mt-12">
+  <img ngSrc="./assets/images/logo.png" height="433" width="440" alt="Logo do Kanban" class="h-36 w-36 mx-auto">
+
+  <form class="w-[75%] my-auto mt-10" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="w-full">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>{{ 'email' | translate }}</mat-label>
+        <input
+          matInput
+          placeholder="{{ 'digit_your_x' | translate:{x: 'email' | translate } }}"
+          formControlName="email"
+        >
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="w-full">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>{{ 'password' | translate }}</mat-label>
+        <input
+          [type]="hide ? 'text' : 'password'"
+          matInput
+          placeholder="{{ 'digit_your_x' | translate:{x: 'password' | translate } }}"
+          formControlName="password"
+        >
+        <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-flat-button
+      color="primary"
+      class="mt-5 w-full"
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      {{ 'login' | translate}}
+    </button>
+
+  </form>
+</div>

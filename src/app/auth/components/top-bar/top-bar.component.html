@@ -1,0 +1,30 @@
+<header class="grid grid-rows-2 h-[15%] w-full">
+  <div id="main-menu" class="row-span-1 app-container bg-gray-300">
+    <img ngSrc="./assets/images/logo.png" class="h-auto w-[10%] md:w-[3%]" height="433" width="440" alt="Kanban logo" priority >
+  </div>
+
+  <div
+    id="tools"
+    class="row-span-1 app-container shadow-divisor gap-11"
+  >
+    <div class="w-36">
+      <mat-label class="flex justify-start items-center">
+        <mat-icon class="text-sm">view_week</mat-icon>
+        Boards
+      </mat-label>
+      <mat-select
+        [(ngModel)]="selectedBoard"
+        (selectionChange)="changeBoard()"
+      >
+        @for (board of boards(); track board) {
+          <mat-option [value]="board">{{ board.name }}</mat-option>
+        }
+      </mat-select>
+    </div>
+
+    <div class="flex items-end h-full text-lg">
+      {{ selectedBoard?.name }}
+    </div>
+
+  </div>
+</header>
